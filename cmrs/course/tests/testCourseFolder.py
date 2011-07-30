@@ -51,6 +51,6 @@ class TestView(unittest.TestCase):
         cf1 = self.cf1
         cf1.invokeFactory('Course', 'c1')
         view = getMultiAdapter((aq_inner(cf1), self.portal.REQUEST), name='course_list')
-        view = view.__of__(af1cf1
+        view = view.__of__(cf1)
         courses = view.getCourses()
         assert len(courses) == 1
