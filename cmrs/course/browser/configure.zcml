@@ -1,0 +1,24 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="cmrs.course">
+
+  <include package="plone.app.contentmenu" />
+
+  <browser:page
+      name="course_view"
+      for="cmrs.course.interfaces.course.ICourse"
+      class=".course.CourseView"
+      template="templates/course_view.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
+      name="course_list"
+      for="cmrs.course.interfaces.coursefolder.ICourseFolder"
+      class=".coursefolder.CourseFolderView"
+      template="templates/course_list.pt"
+      permission="zope2.View"
+      />
+
+</configure>
