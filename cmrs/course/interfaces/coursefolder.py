@@ -1,5 +1,5 @@
 from zope.interface import Interface
 
-class CourseFolder(Interface):
+class ICourseFolder(Interface):
     """Marker interface for CourseFolder
     """
