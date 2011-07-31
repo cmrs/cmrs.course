@@ -15,11 +15,9 @@
 
         <div tal:replace="structure provider:plone.belowcontenttitle" />
 
-        <div class="documentDescription">
-            <span metal:use-macro="python:context.widget('description', mode='view')" />
-        </div>
-
         <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div tal:content="structure context/getText" />
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
