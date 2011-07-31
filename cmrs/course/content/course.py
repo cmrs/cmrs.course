@@ -27,4 +27,8 @@ class Course(ATCTContent):
     def canSetConstrainTypes(self):
         return False
 
+    security.declarePublic('getCourseSemesters')
+    def getCourseSemesters(self):
+        return self.aq_inner.aq_parent.getCourseAvailabilityVocab()
+
 registerType(Course, PROJECTNAME)

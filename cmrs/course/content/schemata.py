@@ -65,6 +65,7 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
         required = True,
         searchable = True,
         vocabulary = 'getCourseSemesters',
+        multiValued = True,
         storage = AnnotationStorage(),
         widget = SelectionWidget(
             label='Course Availability',
