@@ -51,6 +51,6 @@ class Course(ATCTContent):
         text = tansform_tool.convert('html_to_text', text).getData()
         if len(text) < 300:
             return text
-        return self.text[:150] + '...'
+        return text[:150] + '...'
 
 registerType(Course, PROJECTNAME)
