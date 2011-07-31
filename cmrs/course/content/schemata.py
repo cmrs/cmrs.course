@@ -89,5 +89,5 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
 ))
 
 CourseSchema['title'].widget.label = 'Course Title'
-AcademicSchema['description'].widget.visible = False
+CourseSchema['description'].widget.visible = False
 finalizeATCTSchema(CourseSchema)
