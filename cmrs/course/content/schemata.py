@@ -4,6 +4,7 @@ from Products.Archetypes.atapi import AnnotationStorage
 from Products.Archetypes.atapi import Schema
 from Products.Archetypes.atapi import LinesField
 from Products.Archetypes.atapi import LinesWidget
+from Products.Archetypes.atapi import MultiSelectionWidget
 from Products.Archetypes.atapi import RichWidget
 from Products.Archetypes.atapi import SelectionWidget
 from Products.Archetypes.atapi import StringField
@@ -67,7 +68,7 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
         vocabulary = 'getCourseSemesters',
         multiValued = True,
         storage = AnnotationStorage(),
-        widget = SelectionWidget(
+        widget = MultiSelectionWidget(
             label='Course Availability',
             description = """Select which semesters the course ia availabe in,
                 if the new semesters are not listed here you can add them by editing the course folder""",
