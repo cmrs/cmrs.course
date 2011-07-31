@@ -38,9 +38,21 @@ class Course(ATCTContent):
         new_id = plone_tool.normalizeString(new_id)
         self.setId(new_id)
 
+    security.declarePrivate('at_post_create_script')
+    def at_post_edit_script(self):
+        self._renameAfterCreation()
+
     security.declarePublic('getCourseSemesters')
     def getCourseSemesters(self):
         return self.aq_inner.aq_parent.getCourseAvailabilityVocab()
+
+    security.declarePublic('Title')
+    def Title(self):
+        if self.getCourseCode():
+            title = self.getCourseCode() + ' '
+        else:
+            return self.Schema()['title'].get(self)
+        return title + self.Schema()['title'].get(self)
 
     security.declarePublic('Description')
     def Description(self):
