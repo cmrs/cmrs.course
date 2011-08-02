@@ -20,6 +20,10 @@ class TestInstallation(unittest.TestCase):
         assert 'CourseFolder' in portal_types.objectIds(), portal_types.objectIds()
         assert 'Course' in portal_types.objectIds(), portal_types.objectIds()
 
+    def testPortalFactorySetup(self):
+        assert 'Course' in self.portal.portal_factory.getFactoryTypes()
+        assert 'CourseFolder' in self.portal.portal_factory.getFactoryTypes()
+
 class TestReinstall(unittest.TestCase):
     """Ensure product can be reinstalled safely"""
     layer = CMRS_COURSE_INTEGRATION_TESTING
