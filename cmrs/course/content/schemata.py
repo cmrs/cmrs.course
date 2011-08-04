@@ -63,7 +63,7 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
     ),
 
     StringField('courseAvailability',
-        required = True,
+        required = False,
         searchable = True,
         vocabulary = 'getCourseSemesters',
         multiValued = True,
