@@ -8,7 +8,7 @@ def add_catalog_indexes(context, logger=None):
     indexes = catalog.indexes()
     wanted = (('getCourseType', 'FieldIndex'),
               ('getCourseSubject', 'FieldIndex'),
-              ('getCourseAvailability', 'FieldIndex'),
+              ('getCourseAvailability', 'KeywordIndex'),
               )
     indexables = []
     for name, meta_type in wanted:
