@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<import-steps>
+  <import-step id="cmrs.course.various"
+               version="20110820-01"
+               handler="cmrs.course.setuphandlers.setupVarious"
+               title="CMRS Course Package: miscellaneous import steps">
+    <dependency step="catalog" />
+    Various import steps that are not handled by GS import/export
+    handlers.
+  </import-step>
+</import-steps>
