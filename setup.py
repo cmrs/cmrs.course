@@ -59,11 +59,4 @@ setup(name='cmrs.course',
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
       test_suite='cmrs.course.tests.test_docs.test_suite',
-      entry_points="""
-      # -*- entry_points -*-
-      [z3c.autoinclude.plugin]
-      target = plone
-      """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )
