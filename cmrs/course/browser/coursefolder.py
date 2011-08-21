@@ -2,6 +2,8 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.CMFCore.utils import getToolByName
 
+from cmrs.course.config import COURSE_TYPE, SUBJECT_CREDIT
+
 class CourseFolderView(BrowserView):  
 
     template = ViewPageTemplateFile('templates/course_list.pt')
@@ -24,6 +26,16 @@ class CourseFolderView(BrowserView):
                                                                   'sort_on':'sortable_title'},
                                                    full_objects=True)
         return courses
+
+    def vocabCourseType(self):
+        """Get the vocab for the course type
+        """
+        return COURSE_TYPE
+
+    def vocabCourseSubject(self):
+        """Get the vocab for the course subject
+        """
+        return SUBJECT_CREDIT
 
     def uniqueValuesForCourseType(self):
         """Get the list of values for the course type facet
