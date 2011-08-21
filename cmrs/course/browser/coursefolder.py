@@ -31,3 +31,17 @@ class CourseFolderView(BrowserView):
         portal_catalog = getToolByName(self, 'portal_catalog')
         course_types = portal_catalog.uniqueValuesFor("getCourseType")
         return course_types
+
+    def uniqueValuesForCourseSubject(self):
+        """Get the list of values for the course subject facet
+        """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        course_subjects = portal_catalog.uniqueValuesFor("getCourseSubject")
+        return course_subjects
+
+    def uniqueValuesForCourseAvailability(self):
+        """Get the list of values for the course availability facet
+        """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        course_availability = portal_catalog.uniqueValuesFor("getCourseAvailability")
+        return course_availability
