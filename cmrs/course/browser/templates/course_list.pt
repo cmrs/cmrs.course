@@ -20,9 +20,9 @@
                 <metal:position use-macro="context/@@cmrs.course.macros/macros/subject_facet" />
                 <metal:position use-macro="context/@@cmrs.course.macros/macros/type_facet" />
                 <metal:position use-macro="context/@@cmrs.course.macros/macros/availability_facet" />
+                <metal:position use-macro="context/@@cmrs.course.macros/macros/submit_button" />
             </div>
             <metal:position use-macro="context/@@cmrs.course.macros/macros/results_display" />
-            <metal:position use-macro="context/@@cmrs.course.macros/macros/submit_button" />
         </form>
         </tal:main-macro>
     </metal:main>
