@@ -1,3 +1,36 @@
-<metal:sections define-macro="display">
-<div tal:replace="string:foobar" />
-</metal:sections>
+<fieldset metal:define-macro="facets">
+    <legend>Coures Types</legend>
+    <div class="field"
+         tal:define="no_contact request/no_contact | nothing">
+         <div tal:repeat="vocab_item view/uniqueValuesForCourseType">
+            <input tal:attributes="value vocab_item"
+                   name="course_type"
+                   type="checkbox"
+                   />
+            <label tal:content="vocab_item" />
+        </div>
+    </div>
+</fieldset>
+
+<dl metal:define-macro="results_display">
+    <div tal:repeat="course courses"
+         tal:omit-tag="">
+        <dt>
+            <a tal:attributes="src course/absolute_url"
+               tal:content="course/title" />
+        </dt>
+        <dd tal:content="course/description" />
+    </div>
+</dl>
+
+<div metal:define-macro="submit_button">
+    <div class="field">
+        <div class="formControls">
+            <input class="context"
+                name="form.button.Send"
+                type="submit"
+                value="Search"
+                />
+        </div>
+    </div>
+</div>

@@ -3,27 +3,25 @@
       metal:use-macro="here/main_template/macros/master"
       i18n:domain="cmrs.course">
 <body>
-
+    <metal:override fill-slot="column_two_slot" />
     <metal:main fill-slot="main">
         <tal:main-macro metal:define-macro="main"
-            tal:define="courses view/getCourses">
-
-        <div tal:replace="structure provider:plone.abovecontenttitle" />
+            tal:define="courses view/searchCourses">
 
         <h1 class="documentFirstHeading">
             <span metal:use-macro="python:context.widget('title', mode='view')" />
         </h1>
 
-        <div tal:replace="structure provider:plone.belowcontenttitle" />
-
         <div class="documentDescription">
             <span metal:use-macro="python:context.widget('description', mode='view')" />
         </div>
-
-        <div tal:replace="structure provider:plone.abovecontentbody" />
-
-        <div tal:replace="structure provider:plone.belowcontentbody" />
-
+        <form tal:attributes="action context/absolute_url">
+            <div style="float: right">
+                <metal:position use-macro="context/@@cmrs.course.macros/macros/facets" />
+            </div>
+            <metal:position use-macro="context/@@cmrs.course.macros/macros/results_display" />
+            <metal:position use-macro="context/@@cmrs.course.macros/macros/submit_button" />
+        </form>
         </tal:main-macro>
     </metal:main>
 </body>

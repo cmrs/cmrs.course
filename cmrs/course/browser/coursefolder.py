@@ -16,3 +16,18 @@ class CourseFolderView(BrowserView):
                                                                   'sort_on':'sortable_title'},
                                                    full_objects=True)
         return courses
+
+    def searchCourses(self):
+        """Return the courses as objects
+        """
+        courses = self.context.getFolderContents(contentFilter={'portal_type':'Course',
+                                                                  'sort_on':'sortable_title'},
+                                                   full_objects=True)
+        return courses
+
+    def uniqueValuesForCourseType(self):
+        """Get the list of values for the course type facet
+        """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        course_types = portal_catalog.uniqueValuesFor("getCourseType")
+        return course_types
