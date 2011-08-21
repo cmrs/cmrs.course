@@ -1,10 +1,39 @@
-<fieldset metal:define-macro="facets">
-    <legend>Coures Types</legend>
+<fieldset metal:define-macro="type_facet">
+    <legend>Course Types</legend>
     <div class="field"
-         tal:define="no_contact request/no_contact | nothing">
+         tal:define="course_type request/course_type | nothing">
          <div tal:repeat="vocab_item view/uniqueValuesForCourseType">
             <input tal:attributes="value vocab_item"
                    name="course_type"
+                   type="checkbox"
+                   />
+            <label tal:content="vocab_item" />
+        </div>
+    </div>
+</fieldset>
+
+<fieldset metal:define-macro="subject_facet">
+    <legend>Course Types</legend>
+    <div class="field"
+         tal:define="course_subject request/course_subject | nothing">
+         <div tal:repeat="vocab_item view/uniqueValuesForCourseSubject">
+            <input tal:attributes="value vocab_item"
+                   name="course_subject"
+                   type="checkbox"
+                   />
+            <label tal:content="vocab_item" />
+        </div>
+    </div>
+</fieldset>
+
+<fieldset metal:define-macro="availability_facet">
+    <legend>Course Types</legend>
+    <div class="field"
+         tal:define="course_availability request/course_availability | nothing">
+         <div tal:repeat="vocab_item view/uniqueValuesForCourseAvailability">
+            <input tal:attributes="value vocab_item"
+                   tal:condition="python:vocab_item != ''"
+                   name="course_availability"
                    type="checkbox"
                    />
             <label tal:content="vocab_item" />
