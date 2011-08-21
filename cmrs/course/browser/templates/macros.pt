@@ -50,8 +50,8 @@
     <div tal:repeat="course courses"
          tal:omit-tag="">
         <dt>
-            <a tal:attributes="src course/absolute_url"
-               tal:content="course/title" />
+            <a tal:attributes="href course/getURL"
+               tal:content="course/Title" />
         </dt>
         <dd tal:content="course/Description" />
     </div>

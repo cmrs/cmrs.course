@@ -22,9 +22,26 @@ class CourseFolderView(BrowserView):
     def searchCourses(self):
         """Return the courses as objects
         """
-        courses = self.context.getFolderContents(contentFilter={'portal_type':'Course',
-                                                                  'sort_on':'sortable_title'},
-                                                   full_objects=True)
+        request = self.request
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        if hasattr(self.request, 'course_type'):
+            course_type = getattr(self.request, 'course_type')
+        else:
+            course_type = self.uniqueValuesForCourseType()
+        if hasattr(self.request, 'course_subject'):
+            course_subject = getattr(self.request, 'course_subject')
+        else:
+            course_subject = self.uniqueValuesForCourseSubject()
+        if hasattr(self.request, 'course_availability'):
+            course_availability = getattr(self.request, 'course_availability')
+        else:
+            course_availability = self.uniqueValuesForCourseAvailability()
+        courses = portal_catalog(portal_type='Course',
+                                 review_state='published',
+                                 getCourseAvailability=course_availability,
+                                 getCourseSubject=course_subject,
+                                 getCourseType=course_type,
+                                 )
         return courses
 
     def vocabCourseType(self):
