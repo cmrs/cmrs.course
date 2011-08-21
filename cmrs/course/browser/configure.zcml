@@ -21,4 +21,11 @@
       permission="zope2.View"
       />
 
+  <browser:page
+      name="cmrs.course.macros"
+      for="cmrs.course.interfaces.coursefolder.ICourseFolder"
+      template="templates/macros.pt"
+      permission="zope2.View"
+      />
+
 </configure>

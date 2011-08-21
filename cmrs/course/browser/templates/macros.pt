@@ -1,0 +1,3 @@
+<metal:sections define-macro="display">
+<div tal:replace="string:foobar" />
+</metal:sections>
