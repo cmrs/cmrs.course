@@ -31,8 +31,6 @@ long_description = (
     'Download\n'
     '********\n')
 
-tests_require = ['zope.testing']
-
 setup(name='cmrs.course',
       version=version,
       description="Courses for the CMRS website",
@@ -53,10 +51,17 @@ setup(name='cmrs.course',
       namespace_packages=['cmrs', ],
       include_package_data=True,
       zip_safe=False,
-      install_requires=['setuptools',
-                        # -*- Extra requirements: -*-
-                        ],
-      tests_require=tests_require,
-      extras_require=dict(tests=tests_require),
-      test_suite='cmrs.course.tests.test_docs.test_suite',
-      )
+      install_requires=[
+          'setuptools',
+      ],
+      extras_require = {
+          'test': [
+              'plone.app.testing',
+          ]
+      },
+      entry_points="""
+      # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
+      """,
+)
