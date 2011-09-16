@@ -1,5 +1,5 @@
 <fieldset metal:define-macro="type_facet">
-    <legend>Course Types</legend>
+    <legend>Course Type</legend>
     <div class="field"
          tal:define="course_type request/course_type|view/vocabCourseType">
          <div tal:define="vocab view/vocabCourseType"
@@ -15,7 +15,7 @@
 </fieldset>
 
 <fieldset metal:define-macro="subject_facet">
-    <legend>Course Types</legend>
+    <legend>Course Subject</legend>
     <div class="field"
          tal:define="course_subject request/course_subject|view/uniqueValuesForCourseSubject">
          <div tal:define="vocab view/vocabCourseSubject"
@@ -31,7 +31,7 @@
 </fieldset>
 
 <fieldset metal:define-macro="availability_facet">
-    <legend>Course Types</legend>
+    <legend>Course Availability</legend>
     <div class="field"
          tal:define="course_availability request/course_availability|view/uniqueValuesForCourseAvailability">
          <div tal:repeat="vocab_item view/uniqueValuesForCourseAvailability">
