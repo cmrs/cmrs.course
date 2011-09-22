@@ -6,8 +6,9 @@ def add_catalog_indexes(context, logger=None):
     """
     catalog = getToolByName(context, 'portal_catalog')
     indexes = catalog.indexes()
-    wanted = (('getCourseType', 'FieldIndex'),
-              ('getCourseSubject', 'FieldIndex'),
+    wanted = (('getCourseCode', 'FieldIndex'),
+              ('getCourseType', 'FieldIndex'),
+              ('getCourseSubject', 'KeywordIndex'),
               ('getCourseAvailability', 'KeywordIndex'),
               )
     indexables = []

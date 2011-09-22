@@ -29,6 +29,18 @@ CourseFolderSchema = ATFolderSchema.copy() + Schema((
         )
     ),
 
+    TextField('text',
+        required = False,
+        searchable = True,
+        primary = True,
+        storage = AnnotationStorage(migrate=True),
+        validators = ('isTidyHtmlWithCleanup',),
+        default_output_type = 'text/x-html-safe',
+        widget = RichWidget(
+            label = 'Course Introduction',
+            rows = 25,)
+        ),
+
 ))
 
 CourseSchema = ATContentTypeSchema.copy() + Schema((
@@ -55,10 +67,12 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
     StringField('courseSubject',
         required = True,
         searchable = True,
+        multiValued = True,
         vocabulary = SUBJECT_CREDIT,
         storage = AnnotationStorage(),
-        widget = SelectionWidget(
+        widget = MultiSelectionWidget(
             label='Subject Credit',
+            format='checkbox',
         )
     ),
 
@@ -72,6 +86,7 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
             label='Course Availability',
             description = """Select which semesters the course ia availabe in,
                 if the new semesters are not listed here you can add them by editing the course folder""",
+            format='checkbox',
         )
     ),
 

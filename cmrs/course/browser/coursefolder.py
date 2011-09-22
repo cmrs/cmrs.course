@@ -41,6 +41,7 @@ class CourseFolderView(BrowserView):
                                  getCourseAvailability=course_availability,
                                  getCourseSubject=course_subject,
                                  getCourseType=course_type,
+                                 sort_on='getCourseCode',
                                  )
         return courses
 
