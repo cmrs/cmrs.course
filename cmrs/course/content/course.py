@@ -1,5 +1,7 @@
+import string
 import transaction
 from AccessControl import ClassSecurityInfo
+from OFS.CopySupport import CopyError
 from zope.interface import implements
 
 from Products.Archetypes.atapi import registerType
@@ -34,9 +36,18 @@ class Course(ATCTContent):
         # Can't rename without a subtransaction commit when using
         # portal_factory!
         transaction.savepoint(optimistic = True)
-        new_id = self.getCourseCode()
-        new_id = plone_tool.normalizeString(new_id)
-        self.setId(new_id)
+        base_id = self.getCourseCode()
+        base_id = plone_tool.normalizeString(base_id)
+        try:
+            self.setId(base_id)
+        except CopyError:
+            for letter in string.ascii_lowercase:
+                new_id = base_id + '-' + letter
+                try:
+                    self.setId(new_id)
+                    break
+                except CopyError:
+                    pass
 
     security.declarePrivate('at_post_create_script')
     def at_post_edit_script(self):
