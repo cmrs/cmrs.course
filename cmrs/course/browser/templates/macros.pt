@@ -1,3 +1,13 @@
+<fieldset metal:define-macro="freetext_facet">
+    <legend>Course Search</legend>
+    <div class="field"
+         tal:define="course_search request/course_search|nothing">
+        <input tal:attributes="value course_search;"
+                name="course_search"
+            />
+    </div>
+</fieldset>
+
 <fieldset metal:define-macro="type_facet">
     <legend>Course Type</legend>
     <div class="field"

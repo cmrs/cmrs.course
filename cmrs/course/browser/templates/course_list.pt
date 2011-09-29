@@ -17,6 +17,7 @@
         </div>
         <form tal:attributes="action context/absolute_url">
             <div style="float: right">
+                <metal:position use-macro="context/@@cmrs.course.macros/macros/freetext_facet" />
                 <metal:position use-macro="context/@@cmrs.course.macros/macros/availability_facet" />
                 <metal:position use-macro="context/@@cmrs.course.macros/macros/subject_facet" />
                 <metal:position use-macro="context/@@cmrs.course.macros/macros/type_facet" />

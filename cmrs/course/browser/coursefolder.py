@@ -36,13 +36,23 @@ class CourseFolderView(BrowserView):
             course_availability = getattr(self.request, 'course_availability')
         else:
             course_availability = self.uniqueValuesForCourseAvailability()
-        courses = portal_catalog(portal_type='Course',
-                                 review_state='published',
-                                 getCourseAvailability=course_availability,
-                                 getCourseSubject=course_subject,
-                                 getCourseType=course_type,
-                                 sort_on='getCourseCode',
-                                 )
+        if hasattr(self.request, 'course_search'):
+            courses = portal_catalog(portal_type='Course',
+                                     SearchableText=getattr(self.request, 'course_search'),
+                                     review_state='published',
+                                     getCourseAvailability=course_availability,
+                                     getCourseSubject=course_subject,
+                                     getCourseType=course_type,
+                                     sort_on='getCourseCode',
+                                     )
+        else:
+            courses = portal_catalog(portal_type='Course',
+                                     review_state='published',
+                                     getCourseAvailability=course_availability,
+                                     getCourseSubject=course_subject,
+                                     getCourseType=course_type,
+                                     sort_on='getCourseCode',
+                                     )
         return courses
 
     def vocabCourseType(self):
