@@ -1,7 +1,7 @@
 <fieldset metal:define-macro="freetext_facet">
     <legend>Course Search</legend>
     <div class="field"
-         tal:define="course_search request/course_search|nothing">
+         tal:define="course_search request/course_search|string:">
         <input tal:attributes="value course_search;"
                 name="course_search"
             />
@@ -11,7 +11,7 @@
 <fieldset metal:define-macro="type_facet">
     <legend>Course Type</legend>
     <div class="field"
-         tal:define="course_type request/course_type|nothing">
+         tal:define="course_type request/course_type|python:[]">
          <div tal:define="vocab view/vocabCourseType"
               tal:repeat="vocab_item vocab">
             <input tal:attributes="value vocab_item;
@@ -27,7 +27,7 @@
 <fieldset metal:define-macro="subject_facet">
     <legend>Course Subject</legend>
     <div class="field"
-         tal:define="course_subject request/course_subject|nothing>
+         tal:define="course_subject request/course_subject|python:[]">
          <div tal:define="vocab view/vocabCourseSubject"
               tal:repeat="vocab_item view/uniqueValuesForCourseSubject">
             <input tal:attributes="value vocab_item;
@@ -43,7 +43,7 @@
 <fieldset metal:define-macro="availability_facet">
     <legend>Course Availability</legend>
     <div class="field"
-         tal:define="course_availability request/course_availability|nothing">
+         tal:define="course_availability request/course_availability|python:[]">
          <div tal:repeat="vocab_item view/uniqueValuesForCourseAvailability">
             <input tal:attributes="value vocab_item;
                                    checked python:vocab_item in course_availability"
