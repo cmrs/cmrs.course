@@ -1,12 +1,8 @@
 Changelog
 =========
 
-1.1.0 2011/10/06
+1.1.0 Unreleased
 ----------------
-
-- Enable images for pipbox popup
-- Change the layout for the news portlet
-- Allow section image folder at portal root
 
 1.0.0 2011/09/29
 ----------------
