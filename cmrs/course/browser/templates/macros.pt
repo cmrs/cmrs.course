@@ -25,7 +25,7 @@
 </fieldset>
 
 <fieldset metal:define-macro="subject_facet">
-    <legend>Course Subject</legend>
+    <legend>Course Subject and Credit</legend>
     <div class="field"
          tal:define="course_subject request/course_subject|python:[]">
          <div tal:define="vocab view/vocabCourseSubject"
