@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="cmrs.course">
+<body>
+
+    <metal:main fill-slot="main">
+        <tal:main-macro metal:define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading">
+            <span metal:use-macro="python:context.widget('title', mode='view')" />
+        </h1>
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <h2>Integral Courses</h2>
+        <div tal:define="courses python:view.getCoursesByType('integral')">
+            <metal:results use-macro="context/@@cmrs.course.macros/macros/results_display" />
+        </div>
+
+        <h2>Seminars</h2>
+        <div tal:define="courses python:view.getCoursesByType('seminars')">
+            <metal:results use-macro="context/@@cmrs.course.macros/macros/results_display" />
+        </div>
+
+        <h2>Tutorials</h2>
+        <tal:tutorials define="subjects view/uniqueValuesForCourseSubject;
+                               vocab view/vocabCourseSubject"
+            repeat="subject subjects">
+            <h2 tal:content=python:vocab.getValue(subject) />
+            <div tal:define="courses python:view.getCoursesByType('tutorials', subject)">
+                <metal:results use-macro="context/@@cmrs.course.macros/macros/results_display" />
+            </div>
+        </tal:tutorials>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+        </tal:main-macro>
+    </metal:main>
+</body>
+</html>

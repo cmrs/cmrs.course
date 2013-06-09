@@ -22,6 +22,14 @@
       />
 
   <browser:page
+      name="course_browse"
+      for="cmrs.course.interfaces.coursefolder.ICourseFolder"
+      class=".coursefolder.CourseBrowseView"
+      template="templates/course_browse.pt"
+      permission="zope2.View"
+      />
+
+  <browser:page
       name="cmrs.course.macros"
       for="cmrs.course.interfaces.coursefolder.ICourseFolder"
       template="templates/macros.pt"

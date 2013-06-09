@@ -4,7 +4,7 @@ from Products.CMFCore.utils import getToolByName
 
 from cmrs.course.config import COURSE_TYPE, SUBJECT_CREDIT
 
-class CourseFolderView(BrowserView):  
+class CourseFolderView(BrowserView):
 
     template = ViewPageTemplateFile('templates/course_list.pt')
 
@@ -55,6 +55,7 @@ class CourseFolderView(BrowserView):
                                      )
         return courses
 
+
     def vocabCourseType(self):
         """Get the vocab for the course type
         """
@@ -85,3 +86,25 @@ class CourseFolderView(BrowserView):
         portal_catalog = getToolByName(self, 'portal_catalog')
         course_availability = portal_catalog.uniqueValuesFor("getCourseAvailability")
         return course_availability
+
+class CourseBrowseView(CourseFolderView):
+
+    template = ViewPageTemplateFile('templates/course_browse.pt')
+    
+    def __call__(self):
+        return self.template()
+
+    def getCoursesByType(self, course_type, subject=None):
+        """Return the courses as objects
+            """
+        portal_catalog = getToolByName(self, 'portal_catalog')
+        query = {
+            'portal_type':'Course',
+            'review_state':'published',
+            'getCourseType':course_type,
+            'sort_on':'getCourseCode',
+        }
+        if subject is not None:
+            query['getCourseSubject'] = subject
+        courses = portal_catalog(query)
+        return courses
