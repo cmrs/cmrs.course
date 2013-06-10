@@ -14,10 +14,10 @@
       />
 
   <browser:page
-      name="course_list"
+      name="course_search"
       for="cmrs.course.interfaces.coursefolder.ICourseFolder"
       class=".coursefolder.CourseFolderView"
-      template="templates/course_list.pt"
+      template="templates/course_search.pt"
       permission="zope2.View"
       />
 

@@ -18,7 +18,7 @@
  <property name="allow_discussion">False</property>
  <property name="default_view">course_browse</property>
  <property name="view_methods">
-  <element value="course_list"/>
+  <element value="course_search"/>
   <element value="course_browse"/>
  </property>
  <property name="default_view_fallback">False</property>

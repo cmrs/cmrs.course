@@ -6,7 +6,7 @@ from cmrs.course.config import COURSE_TYPE, SUBJECT_CREDIT
 
 class CourseFolderView(BrowserView):
 
-    template = ViewPageTemplateFile('templates/course_list.pt')
+    template = ViewPageTemplateFile('templates/course_search.pt')
 
     def __call__(self):
         return self.template() 
