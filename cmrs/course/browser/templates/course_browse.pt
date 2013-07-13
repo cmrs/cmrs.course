@@ -32,7 +32,7 @@
         </div>
 
         <h2 class="collapsedHeading collapsed">Tutorials</h2>
-        <dl class="tutorial-list">
+        <dl id="tutorial-list">
             <dd>
                 <tal:tutorials define="subjects view/uniqueValuesForCourseSubject;
                                        vocab view/vocabCourseSubject"
