@@ -9,7 +9,7 @@
             tal:define="submitted request/course_availability|nothing">
         <div style="float:right;">
             <a tal:attributes="href string:${context/absolute_url}">
-                Browse Courses
+                Search Courses
             </a>
         </div>
         <h1 class="documentFirstHeading">
