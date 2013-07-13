@@ -67,6 +67,9 @@ class Course(ATCTContent):
 
     security.declarePublic('Description')
     def Description(self):
+        desc = self.schema['description'].get(self)
+        if desc:
+            return desc
         tansform_tool = getToolByName(self, 'portal_transforms')
         text = self.getText()
         if not text:
