@@ -1,8 +1,10 @@
 Changelog
 =========
 
-1.2.0 Unreleased
+1.1.1 2013/07/13
 ----------------
+
+- Minor changes and add some classes for styling
 
 1.1.0 2013/06/18
 ----------------
