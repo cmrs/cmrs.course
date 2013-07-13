@@ -18,6 +18,7 @@ SUBJECT_CREDIT = DisplayList((
     ('art', 'Art'),
     ('art_history', 'Art History'),
     ('classical_studies', 'Classical Studies'),
+    ('creative_writing', 'Creative Writing'),
     ('dramatic_arts', 'Dramatic Arts'),
     ('gender_studies', 'Gender Studies'),
     ('history', 'History'),
