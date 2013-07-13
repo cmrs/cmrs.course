@@ -59,11 +59,11 @@
 <dl metal:define-macro="results_display">
     <div tal:repeat="course courses"
          tal:omit-tag="">
-        <dt>
+        <dt class="course-title">
             <a tal:attributes="href course/getURL"
                tal:content="course/Title" />
         </dt>
-        <dd tal:content="course/Description" />
+        <dd class="course-description" tal:content="course/Description" />
     </div>
 </dl>
 
