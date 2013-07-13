@@ -9,7 +9,7 @@
 
         <div tal:replace="structure provider:plone.abovecontenttitle" />
         <div style="float:right;">
-            <a tal:attributes="href string:${context/absolute_url}/course_search">
+            <a class="course-btn" tal:attributes="href string:${context/absolute_url}/course_search">
                 Browse Courses
             </a>
         </div>

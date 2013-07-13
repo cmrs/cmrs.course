@@ -8,7 +8,7 @@
         <tal:main-macro metal:define-macro="main"
             tal:define="submitted request/course_availability|nothing">
         <div style="float:right;">
-            <a tal:attributes="href string:${context/absolute_url}">
+            <a class="course-btn" tal:attributes="href string:${context/absolute_url}">
                 Search Courses
             </a>
         </div>
