@@ -105,5 +105,6 @@ CourseSchema = ATContentTypeSchema.copy() + Schema((
 ))
 
 CourseSchema['title'].widget.label = 'Course Title'
+CourseSchema['title'].edit_accessor = 'editTitle'
 CourseSchema["description"].widget.visible = {"edit": "invisible" }
 finalizeATCTSchema(CourseSchema)

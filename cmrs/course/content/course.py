@@ -66,6 +66,11 @@ class Course(ATCTContent):
             return self.Schema()['title'].get(self)
         return title + self.Schema()['title'].get(self)
 
+
+    security.declarePublic('editTitle')
+    def editTitle(self):
+        return self.Schema()['title'].get(self)
+
     security.declarePublic('Description')
     def Description(self):
         desc = self.schema['description'].get(self)
