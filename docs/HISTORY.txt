@@ -4,6 +4,10 @@ Changelog
 1.2.0 Unreleased
 ----------------
 
+- Fix the course code being duplicated
+- Change integral to research
+- Add new course type vocal
+
 1.1.0 2013/06/18
 ----------------
 
