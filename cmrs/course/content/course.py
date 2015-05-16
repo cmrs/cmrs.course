@@ -1,6 +1,7 @@
 import string
 import transaction
 from AccessControl import ClassSecurityInfo
+from lxml import etree
 from OFS.CopySupport import CopyError
 from zope.interface import implements
 
@@ -65,6 +66,11 @@ class Course(ATCTContent):
             return self.Schema()['title'].get(self)
         return title + self.Schema()['title'].get(self)
 
+
+    security.declarePublic('editTitle')
+    def editTitle(self):
+        return self.Schema()['title'].get(self)
+
     security.declarePublic('Description')
     def Description(self):
         desc = self.schema['description'].get(self)
@@ -74,9 +80,10 @@ class Course(ATCTContent):
         text = self.getText()
         if not text:
             return ''
-        text = tansform_tool.convert('html_to_text', text).getData()
-        if len(text) < 300:
-            return text
-        return text[:150] + '...'
+        # wrap the text in a single root element
+        # otherwise lxml throws an error
+        text = '<course>' + text + '</course>'
+        course_xml = etree.fromstring(text)
+        return course_xml[0].text
 
 registerType(Course, PROJECTNAME)

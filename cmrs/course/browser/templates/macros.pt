@@ -60,10 +60,16 @@
     <div tal:repeat="course courses"
          tal:omit-tag="">
         <dt class="course-title">
-            <a tal:attributes="href course/getURL"
+            <a target="_blank"
+               tal:attributes="href course/getURL"
                tal:content="course/Title" />
         </dt>
         <dd class="course-description" tal:content="course/Description" />
+        <p class="read-more">
+            &nbsp;
+            <a target="_blank"
+               tal:attributes="href course/getURL">Read more...</a>
+        </p>
     </div>
 </dl>
 

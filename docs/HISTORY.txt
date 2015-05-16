@@ -1,13 +1,15 @@
 Changelog
 =========
 
-1.2.0 Unreleased
+1.3.0 Unreleased
 ----------------
 
-1.1.1 2013/07/13
+1.2.0 2015/04/11
 ----------------
 
-- Minor changes and add some classes for styling
+- Fix the course code being duplicated
+- Change integral to research
+- Add new course type vocal
 
 1.1.0 2013/06/18
 ----------------
