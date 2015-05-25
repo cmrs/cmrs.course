@@ -4,12 +4,13 @@ from Products.CMFCore.utils import getToolByName
 
 from cmrs.course.config import COURSE_TYPE, SUBJECT_CREDIT
 
+
 class CourseFolderView(BrowserView):
 
     template = ViewPageTemplateFile('templates/course_search.pt')
 
     def __call__(self):
-        return self.template() 
+        return self.template()
 
     def getCourses(self):
         """Return the courses as objects
@@ -87,10 +88,11 @@ class CourseFolderView(BrowserView):
         course_availability = portal_catalog.uniqueValuesFor("getCourseAvailability")
         return course_availability
 
+
 class CourseBrowseView(CourseFolderView):
 
     template = ViewPageTemplateFile('templates/course_browse.pt')
-    
+
     def __call__(self):
         return self.template()
 
