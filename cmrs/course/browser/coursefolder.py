@@ -78,7 +78,11 @@ class CourseFolderView(BrowserView):
         """Get the list of values for the course subject facet
         """
         portal_catalog = getToolByName(self, 'portal_catalog')
-        course_subjects = portal_catalog.uniqueValuesFor("getCourseSubject")
+        catalog_subjects = portal_catalog.uniqueValuesFor("getCourseSubject")
+        course_subjects = []
+        for subject_credit in SUBJECT_CREDIT:
+            if subject_credit in catalog_subjects:
+                course_subjects.append(subject_credit)
         return course_subjects
 
     def uniqueValuesForCourseAvailability(self):
