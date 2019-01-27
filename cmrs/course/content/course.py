@@ -1,7 +1,7 @@
 import string
 import transaction
 from AccessControl import ClassSecurityInfo
-from lxml import etree
+from lxml import html
 from OFS.CopySupport import CopyError
 from zope.interface import implements
 
@@ -82,8 +82,7 @@ class Course(ATCTContent):
             return ''
         # wrap the text in a single root element
         # otherwise lxml throws an error
-        text = '<course>' + text + '</course>'
-        course_xml = etree.fromstring(text)
-        return course_xml[0].text
+        course_xml = html.fromstring(text)
+        return course_xml[0].text_content()
 
 registerType(Course, PROJECTNAME)
