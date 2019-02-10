@@ -80,9 +80,12 @@ class Course(ATCTContent):
         text = self.getText()
         if not text:
             return ''
-        # wrap the text in a single root element
-        # otherwise lxml throws an error
         course_xml = html.fromstring(text)
-        return course_xml[0].text_content()
+        try:
+            return course_xml[0].text_content()
+        except IndexError:
+            return course_xml.text_content()
+        except:
+            return ''
 
 registerType(Course, PROJECTNAME)
